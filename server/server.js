@@ -29,6 +29,11 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
 
+// Root route (important)
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully 🚀");
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Error:', err);
